@@ -1,0 +1,40 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename='img/about-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>About Me</h1>
+            <span class="subheading">This is what I do.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p>Hello! My name is Jennifer. Welcome to my blog website project.</p>
+        <p>This website was created as a multipart project from Udemy's <a href="https://www.udemy.com/course/100-days-of-code/" target="_blank">100 Days of Code Python course by Dr. Angela Yu</a>.</p>
+        <p>This project covers the following concepts:</p>
+        <ul>
+          <li>Backend development using Flask, Jinja templating, and WTForms</li>
+          <li>Database manipulation using SQLite and SQLAlchemy</li>
+          <li>RESTful API routing for adding, editing, and deleting posts</li>
+          <li>Security, encryption, and authentication for registering users and protecting admin only routes</li>
+        </ul>
+        <p>Take a look around, and if you feel like registering and leaving a comment on any of the placeholder blog posts, please feel free. ;)</p>
+        <p>Note: You will need to "register" in order to leave a comment, but you can use a dummy email. Don't worry, I won't send you spam.</p>
+        <p>Thanks for visiting!</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  {% include "footer.html" %}
