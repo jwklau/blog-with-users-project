@@ -20,7 +20,7 @@ MY_EMAIL = os.getenv("TestEmail")
 EMAIL_PASSWORD = os.getenv("EmailPassword")
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv("FlaskAppSecretKeyBlogCapstone")
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
@@ -115,7 +115,7 @@ class Comment(db.Model):
     comment = db.Column(db.Text, nullable=False)
 
 # Line below only required once, when creating DB.
-db.create_all()
+# db.create_all()
 
 # Decorator functions
 
