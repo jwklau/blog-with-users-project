@@ -115,7 +115,7 @@ class Comment(db.Model):
     comment = db.Column(db.Text, nullable=False)
 
 # Line below only required once, when creating DB.
-# db.create_all()
+db.create_all()
 
 # Decorator functions
 
