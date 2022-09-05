@@ -20,7 +20,7 @@ MY_EMAIL = os.getenv("TestEmail")
 EMAIL_PASSWORD = os.getenv("EmailPassword")
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+app.config['SECRET_KEY'] = "8BYkEfBA6O6donzWlSihBXox7C0sKR6b"
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
@@ -90,8 +90,8 @@ class BlogPost(db.Model):
     subtitle = db.Column(db.String(250), nullable=False)
     date = db.Column(db.String(250), nullable=False)
     body = db.Column(db.Text, nullable=False)
-    photo = db.Column(db.String(250), nullable=False)
-    unsplash_url = db.Column(db.String(250))
+    photo_url = db.Column(db.String(250))
+    attribution_url = db.Column(db.String(250))
     photographer = db.Column(db.String(100))
 
     # This will act as a List of Comments objects attached to each BlogPost
@@ -214,15 +214,15 @@ def show_post(post_id):
             return redirect(url_for("login"))
 
         new_comment = Comment(
-            comment_author = current_user,
-            comment = form.comment.data,
-            parent_post = requested_post
+            comment_author=current_user,
+            comment=form.comment.data,
+            parent_post=requested_post
         )
 
         db.session.add(new_comment)
         db.session.commit()
 
-    return render_template("post.html",static=url_for("static", filename=""), post=requested_post, current_user=current_user, form=form, year=current_year)
+    return render_template("post.html", static=url_for("static", filename=""), post=requested_post, current_user=current_user, form=form, year=current_year)
 
 
 @app.route("/about")
@@ -253,7 +253,8 @@ def add_new_post():
             title=form.title.data,
             subtitle=form.subtitle.data,
             body=form.body.data,
-            img_url=form.img_url.data,
+            unsplash_url=form.unsplash_url.data,
+            photographer=form.photographer.data,
             author=current_user,
             date=date.today().strftime("%B %d, %Y")
         )

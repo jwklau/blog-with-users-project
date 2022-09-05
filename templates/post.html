@@ -2,7 +2,7 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('{{ static }}/img/{{ post.photo }}')">
+  <header class="masthead" style="background-image: url('{{ post.photo_url }}')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             {{ post.body|safe }}
-          <p>Photo by <a href={{post.unsplashURL}} target="_blank">{{post.photographer}}</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+          <p>Photo by <a href="{{post.attribution_url}}" target="_blank">{{post.photographer}}</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
           <hr>
 
             {% if current_user.id == 1 %}
